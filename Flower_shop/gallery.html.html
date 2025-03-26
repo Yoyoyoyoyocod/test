@@ -1,0 +1,77 @@
+<!-- gallery.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            position: relative; /* Для позиционирования стрелки */
+        }
+        .gallery-container {
+            display: flex;
+            align-items: center;
+        }
+        .color-box {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border: 2px solid #ccc;
+            transition: background-color 0.5s;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+            margin: 0 20px;
+        }
+        .back-arrow {
+            position: absolute; /* Позиционирование стрелки */
+            top: 20px; /* Расстояние от верхней границы */
+            left: 20px; /* Расстояние от левой границы */
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <span class="back-arrow" onclick="location.href='menu.html'">&#9664;</span> <!-- Стрелка назад -->
+    
+    <div class="gallery-container">
+        <span class="arrow" id="left-arrow">&#9664;</span>
+        <div class="color-box" id="color-box"></div>
+        <span class="arrow" id="right-arrow">&#9654;</span>
+    </div>
+
+    <script>
+        const colors = ['yellow', 'red', 'blue'];
+        let currentIndex = 0;
+
+        const colorBox = document.getElementById('color-box');
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+
+        function updateColor() {
+            colorBox.style.backgroundColor = colors[currentIndex];
+        }
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % colors.length; // цикл по массиву
+            updateColor();
+        });
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + colors.length) % colors.length; // цикл по массиву
+            updateColor();
+        });
+
+        // Инициализация цвета
+        updateColor();
+    </script>
+</body>
+</html>

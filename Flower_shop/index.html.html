@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ffcccb, #ff99cc);
+            animation: gradient 5s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: black;
+            font-size: 36px;
+            text-align: center;
+        }
+        @keyframes gradient {
+            0% { background-color: #ffcccb; }
+            50% { background-color: #ff99cc; }
+            100% { background-color: #ffcccb; }
+        }
+        .flower {
+            font-size: 48px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="flower">🌸🌼🌻</div>
+    <div>Добро пожаловать в наш магазин!</div>
+    <button onclick="start()">Начать</button>
+
+    <script>
+        function start() {
+            window.location.href = 'menu.html';
+        }
+    </script>
+</body>
+</html>

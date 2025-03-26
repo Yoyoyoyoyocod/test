@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объединенная страница</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: black;
+            font-size: 36px;
+            text-align: center;
+        }
+        .page { display: none; }
+        .active { display: block; }
+
+        /* Стили для главной страницы */
+        .flower {
+            font-size: 48px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Стили для меню */
+        .menu {
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Стили для страницы "О нас" */
+        .about {
+            background: linear-gradient(to right, red, orange);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 36px;
+        }
+
+        /* Стили для страницы "Тест" */
+        .test {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-size: 36px; 
+            color:black; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Главная страница -->
+    <div id="index" class="page active">
+        <div class="flower">🌸🌼🌻</div>
+        <div>Добро пожаловать в наш магазин!</div>
+        <button onclick="showPage('menu')">Начать</button>
+    </div>
+
+    <!-- Меню -->
+    <div id="menu" class="page menu">
+        <h1>Меню</h1>
+        <button onclick="showPage('about')">О нас</button>
+        <button onclick="showPage('order')">Сделать заказ</button>
+        <button onclick="showPage('contacts')">Контакты</button>
+        <button onclick="showPage('support')">Поддержка</button>
+        <button onclick="showPage('gallery')">Галерея</button>
+        <button onclick="showPage('test')">Тест</button>
+    </div>
+
+    <!-- О нас -->
+    <div id="about" class="page about">
+        <div class="back-button" onclick="showPage('menu')">←</div>
+        <div>Мы - магазин цветов</div>
+    </div>
+
+    <!-- Тест -->
+    <div id="test" class="page test">
+        <div class="back-button" onclick="showPage('menu')">←</div>
+        <div>Ага, попался!</div>
+    </div>
+
+    <!-- Контакты -->
+    <div id="contacts" class="page">
+        <div class="back-button" onclick="showPage('menu')">←</div>
+        <div>Контактная информация...</div>
+    </div>
+
+    <!-- Поддержка -->
+    <div id="support" class="page">
+        <div class="back-button" onclick="showPage('menu')">←</div>
+        <div>Поддержка...</div>
+    </div>
+
+    <!-- Галерея -->
+    <div id="gallery" class="page">
+        <div class="back-button" onclick="showPage('menu')">←</div>
+        <div>Галерея...</div>
+    </div>
+
+    <!-- Скрипт для переключения страниц -->
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
